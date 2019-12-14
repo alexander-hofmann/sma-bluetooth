@@ -1860,8 +1860,9 @@ int main(int argc, char **argv)
         
         //Update Mysql with live data 
         live_mysql( conf, flag, livedatalist, livedatalen );
-        printf( "\nbefore update to PVOutput" ); getchar();
-        /* Connect to database */
+        printf( "\nbefore update to PVOutput\n");
+        sleep(2);
+	/* Connect to database */
         OpenMySqlDatabase( conf.MySqlHost, conf.MySqlUser, conf.MySqlPwd, conf.MySqlDatabase );
 	inverter_serial=(unit[0].Serial[0]<<24)+(unit[0].Serial[1]<<16)+(unit[0].Serial[2]<<8)+unit[0].Serial[3];
         sprintf(SQLQUERY,"SELECT Value FROM LiveData WHERE Inverter = \'%s\' and Serial=\'%lld\' and Description=\'Max Phase 1\' ORDER BY DateTime DESC LIMIT 1", unit[0].Inverter, inverter_serial  );

@@ -1,0 +1,4 @@
+#!/bin/bash
+cd ~/sma-bluetooth2
+./smatool
+
