@@ -419,7 +419,7 @@ check_send_error( FlagType * flag, int *s, int *rr, unsigned char *received, int
 	   printf("\n\n");
         }
         if ((cc==bytes_read)&&(memcmp(received,last_sent,cc) == 0)){
-           printf( "ERROR received what we sent!" ); getchar();
+           printf( "ERROR received what we sent!" ); sleep(2);
            //Need to do something
         }
         if( buf[ bytes_read-1 ] == 0x7e )
@@ -479,7 +479,7 @@ empty_read_bluetooth(  ConfType * conf, FlagType * flag, ReadRecordType * readRe
     FD_SET((*s), &readfds);
 				
     if( select((*s)+1, &readfds, NULL, NULL, &tv) <  0) {
-        printf( "select error has occurred" ); getchar();
+        printf( "select error has occurred" ); sleep(2);
     }
 
 				
@@ -654,7 +654,7 @@ read_bluetooth( ConfType * conf, FlagType * flag, ReadRecordType * readRecord, i
     FD_SET((*s), &readfds);
 				
     if( select((*s)+1, &readfds, NULL, NULL, &tv) <  0) {
-        printf( "select error has occurred" ); getchar();
+        printf( "select error has occurred" ); sleep(2);
     }
 				
     if( flag->verbose==1) printf("Reading bluetooth packett\n");
@@ -791,7 +791,7 @@ read_bluetooth( ConfType * conf, FlagType * flag, ReadRecordType * readRecord, i
 
  
         if ((cc==bytes_read)&&(memcmp(received,last_sent,cc) == 0)){
-           printf( "ERROR received what we sent!" ); getchar();
+           printf( "ERROR received what we sent!" ); sleep(2);
            //Need to do something
         }
         // Check check bit
@@ -1107,7 +1107,7 @@ InitReturnKeys( ConfType * conf )
                     {
                         if( line[0] != ':' )
                         {
-                             printf( "\nWarning Data Scan Failure\n %s\n", line ); getchar();
+                             printf( "\nWarning Data Scan Failure\n %s\n", line ); sleep(2);
                         }
                     }
                 }
